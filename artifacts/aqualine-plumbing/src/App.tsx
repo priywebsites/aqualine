@@ -130,14 +130,17 @@ function Home() {
   // ---------------------------------------------------------------------------
   // Lead submission
   //
-  // Posts to the shared API server at POST /api/contact, which:
-  //   1. Saves the submission to PostgreSQL.
-  //   2. Sends a notification email to LEAD_TO_EMAIL via Gmail SMTP.
+  // Posts to POST /api/contact — a Vercel serverless function that lives at
+  //   artifacts/aqualine-plumbing/api/contact.js
+  // and uses Nodemailer + Gmail SMTP to email the lead to LEAD_TO_EMAIL.
   //
-  // The email route lives at:        artifacts/api-server/src/routes/leads.ts
-  // The email transport lives at:    artifacts/api-server/src/lib/email.ts
+  // Contract:
+  //   200 → { success: true }
+  //   405 → { success: false, error: "Method not allowed" }
+  //   500 → { success: false, error: "Email failed to send" }
   //
-  // SMTP credentials must stay in Replit Secrets / environment variables.
+  // SMTP credentials live in Vercel env vars (SMTP_USER, SMTP_PASS,
+  // LEAD_TO_EMAIL) and never touch the browser.
   // ---------------------------------------------------------------------------
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
@@ -154,19 +157,21 @@ function Home() {
         }),
       });
       const json = (await resp.json().catch(() => ({}))) as {
-        ok?: boolean;
-        emailSent?: boolean;
+        success?: boolean;
+        error?: string;
       };
-      if (!resp.ok || !json.ok) {
-        throw new Error("Request failed");
+      if (!resp.ok || !json.success) {
+        throw new Error(json?.error || "Request failed");
       }
       setDidSubmit(true);
       toast.success(
-        `Thanks — your request has been received. For urgent issues, please call ${PHONE_DISPLAY}.`,
+        `Thanks — your request has been received. We'll be in touch shortly. For urgent issues, please call ${PHONE_DISPLAY}.`,
       );
       form.reset();
     } catch (err) {
-      toast.error(`Something went wrong. Please call ${PHONE_DISPLAY}.`);
+      toast.error(
+        `Something went wrong sending your request. Please call ${PHONE_DISPLAY} so we can help right away.`,
+      );
     } finally {
       setIsSubmitting(false);
     }

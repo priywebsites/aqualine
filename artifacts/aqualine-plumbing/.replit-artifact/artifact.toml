@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/aqualine/"
+title = "AquaLine Winnipeg Plumbing"
+version = "1.0.0"
+id = "artifacts/aqualine-plumbing"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/aqualine/" ]
+localPort = 23099
+
+[services.development]
+run = "pnpm --filter @workspace/aqualine-plumbing run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/aqualine-plumbing", "run", "build" ]
+publicDir = "artifacts/aqualine-plumbing/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23099"
+BASE_PATH = "/aqualine/"

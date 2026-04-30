@@ -66,9 +66,9 @@ const SERVICE_AREA = "Winnipeg, Manitoba";
 const ADDRESS_LINE_1 = "1700 Corydon Ave";
 const ADDRESS_LINE_2 = "Winnipeg, MB R3N 1M1";
 const ADDRESS_FULL = `${ADDRESS_LINE_1}, ${ADDRESS_LINE_2}`;
-const MAP_QUERY = encodeURIComponent(
-  `${BUSINESS_NAME}, ${ADDRESS_LINE_1}, ${ADDRESS_LINE_2}`,
-);
+// Use just the street address (no business name) so the embed drops a single
+// pin on our location instead of showing search results for nearby plumbers.
+const MAP_QUERY = encodeURIComponent(`${ADDRESS_LINE_1}, ${ADDRESS_LINE_2}`);
 // --------------------
 
 const formSchema = z.object({
@@ -1048,7 +1048,7 @@ function Home() {
               </div>
               <div className="rounded-xl overflow-hidden shadow-md h-[400px] border border-slate-200">
                 <iframe
-                  src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
+                  src={`https://www.google.com/maps?q=${MAP_QUERY}&z=16&output=embed`}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

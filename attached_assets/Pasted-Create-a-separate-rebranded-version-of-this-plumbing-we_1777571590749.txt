@@ -1,0 +1,81 @@
+Create a separate rebranded version of this plumbing website for a new business called **AquaLine Winnipeg Plumbing**.
+
+Important: this is a new business website. Replace all mentions of the old business name everywhere on the site. There should be **no mentions of the old business name at all** in visible text, metadata, headings, footer, logo text, alt text, form text, and SEO text.
+
+### Business details
+
+* Business name: **AquaLine Winnipeg Plumbing**
+* Address: **1700 Corydon Ave, Winnipeg, MB R3N 1M1**
+* Phone number: **keep the current phone number the same for now**
+* Email: **keep the old/current email the same for now**
+* Service area: **all of Winnipeg**
+* Business type: **residential plumbing**
+* Keep the plumbing service structure and main sections, but rewrite text throughout the site so it feels like a different business with fresh wording.
+
+### Branding / design
+
+* Create a **new logo** for AquaLine Winnipeg Plumbing using text-based branding
+* Update the website branding so it feels like a new business
+* Use a **new color scheme** that still fits a plumbing/home service vibe — clean, trustworthy, modern, water/plumbing themed
+* Keep the site professional, mobile-friendly, and conversion-focused
+
+### Image replacements
+
+I will add these image files to the project. Use them exactly as follows:
+
+1. Replace the current hero section image with **`newhero.png`**
+
+   * Put `newhero.png` in the main hero section
+   * Remove/replace the original hero image completely
+
+2. Replace the image in the **“Done right the first time, by people who care.”** section with **`newsecond.png`**
+
+3. Replace the image in the **quote section** with **`newquote.png`**
+
+Make sure each of those sections uses the new image file named above and not the old image.
+
+### Text/content changes
+
+* Rewrite the copy across the website so it is fresh and unique, while keeping the same core purpose and plumbing service info
+* Keep the services relevant to a Winnipeg residential plumbing company
+* Update homepage headings, supporting text, trust-building copy, CTA text, and footer copy
+* Mention Winnipeg naturally throughout the website
+* Make sure the copy supports local SEO for searches like:
+
+  * plumber Winnipeg
+  * plumbing Winnipeg
+  * residential plumber Winnipeg
+  * plumber near me
+  * plumbing repair Winnipeg
+  * emergency plumber Winnipeg
+* Do this naturally, not spammy
+
+### Contact / form / business info
+
+* Keep the same contact form functionality working
+* Keep the same phone number for now
+* Keep the same current email for now
+* Update the displayed address to:
+  **1700 Corydon Ave, Winnipeg, MB R3N 1M1**
+* Update any map/address/contact section to reflect the new AquaLine business details
+
+### Technical / cleanup
+
+* Update:
+
+  * page title
+  * meta title
+  * meta description
+  * favicon/logo text if needed
+  * footer
+  * contact info block
+  * schema/business info if present
+* Remove all leftover old branding from the codebase
+* Keep the site layout, responsiveness, and form behavior working properly
+
+After making the changes, show me a summary of:
+
+1. all branding changes made
+2. all text sections updated
+3. where each of the 3 replacement images was applied
+4. any files I need to review manually
